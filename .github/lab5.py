@@ -28,21 +28,30 @@ def main():
     # Finding cost per individual room
     room = 1
     while room <= 5:
+        # User Inputs
         length = int(input("Enter length of room: "))
         width = int(input("Enter width of room: "))
         flooringChoice = input("Enter your choice of flooring: ").lower().strip()
+
+        # Finding cost of sq ft depending on flooring choice
         flooringPriceSQFT = chooseFlooring(flooringChoice)
+
+        # Finding area of one room
         area = findDimensions(length,width)
+
+        # Finding cost based on flooring choice and area of room
         costOfRoom = flooringPriceSQFT * area
         print("Cost of this room is $%.2f" %costOfRoom)
+
+        # Adding the cost of one room to the array of all rooms
         roomPrices.append(costOfRoom)
+
+        # Updating loop counter
         room += 1
 
-    # Adding all values in array to find total cost for all rooms
+    # Finding total cost for all rooms
     total = sum(roomPrices)
     #print(roomPrices)
-    print("Total cost of all rooms is $%.2f" %total)
+    print("\nTotal cost of all rooms is $%.2f" %total)
 
 main()
-
-
